@@ -1,0 +1,114 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace EVS179.NSCart
+{
+    
+   public class DynamicArray
+    {
+       public delegate int SortDeleGate<T>(T value1, T Value2);
+
+        /// <summary>
+        /// Count property to get the all element count
+        /// </summary>
+        public static int Count
+        {
+            get
+            {
+                return count;
+            }
+        }
+
+        private static int count = 0;
+
+        private static CartItem[] array = new CartItem[0];
+        private static CartItem[] tempArray;
+        /// <summary>
+        /// Add values in Array Dynamically.
+        /// </summary>
+        /// <param name="value">Add CartItem type value</param>
+        public void Add(CartItem value)
+        {
+            int index;
+            if (!IsContainValue(value,out index))
+            {
+                count++;
+                tempArray = array;
+                array = new CartItem[count];
+                array[count - 1] = value;
+                Copy(tempArray, array);
+            }
+            else
+            {
+                array[index].Quantity += value.Quantity;
+                array[index].Price = value.Price;
+            }
+        }
+
+        /// <summary>
+        /// This method will sort values on the base of CartItem.Id
+        /// </summary>
+        public static void Sort()
+        {
+            for (int i = 0; i < array.Length; i++)
+            {
+                for (int j = i; j < array.Length; j++)
+                {
+                    if (array[i].Id > array[j].Id)
+                    {
+                        CartItem temp = array[i];
+                        array[i] = array[j];
+                        array[j] = temp;
+                    }
+                }
+            }
+        }
+
+       /// <summary>
+       /// Copy values of one array to another
+       /// </summary>
+       /// <param name="CopyFromArray">From which array you want to copy</param>
+       /// <param name="CopyToArray">In which array you want to copy</param>
+       /// <returns></returns>
+        private CartItem[] Copy(CartItem[] CopyFromArray, CartItem[] CopyToArray)
+        {
+            for (int i = 0; i < CopyFromArray.Length; i++)
+            {
+                CopyToArray[i] = CopyFromArray[i];
+            }
+            return CopyToArray;
+        }
+
+        public CartItem this[int index]
+        {
+            get
+            {
+                if (index < 0 || index > array.Length)
+                    throw new IndexOutOfRangeException("Invalid index please provide valid index...");
+                return array[index];
+            }
+        }
+
+        private bool IsContainValue(CartItem value,out int index)
+        {
+            index = 0;
+            if (array.Length <= 0) return false;
+            foreach (var item in array)
+            {
+                if (item.Id == value.Id)
+                    return true;
+                index++;
+            }
+            return false;
+        }
+
+        public CartItem[] GetAllItems()
+        {
+            return array;
+        }
+
+    }
+}
