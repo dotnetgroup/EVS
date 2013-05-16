@@ -1,0 +1,105 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace EVS179.NSCart
+{
+    public class CartItem
+    {
+        private int id = 0;
+        /// <summary>
+        /// Get Set item's id
+        /// </summary>
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
+        private string name;
+        /// <summary>
+        /// Get,Set item's name
+        /// </summary>
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+        private double price;
+        /// <summary>
+        /// Get,Set item's price
+        /// </summary>
+        public double Price
+        {
+            get { return price; }
+            set { price = value; }
+        }
+        private int qty;
+        /// <summary>
+        /// Get,Set item's quantitiy
+        /// </summary>
+        public int Quantity
+        {
+            get { return qty; }
+            set { qty = value; }
+        }
+
+        /// <summary>
+        /// Get total Amount
+        /// </summary>
+        public double Amount
+        {
+            get { return qty * price; }
+        }
+
+        //private double totalAmount;
+
+        ///// <summary>
+        ///// Get Amount of all items.
+        ///// </summary>
+        //public double TotalAmount
+        //{
+        //    get { return totalAmount; }
+        //}
+
+        /// <summary>
+        /// Intialize new object
+        /// </summary>
+        public CartItem()
+        {
+            this.id = 0;
+            this.name = string.Empty;
+            this.qty = 0;
+            this.price = 0;
+        }
+        /// <summary>
+        /// Intialize new object
+        /// </summary>
+        /// <param name="id">item id</param>
+        /// <param name="name">item name</param>
+        /// <param name="price">item price</param>
+        /// <param name="quantity">item quantity</param>
+        public CartItem(int id, string name, double price, int quantity)
+        {
+            this.id = id;
+            this.name = name;
+            this.price = price;
+            this.qty = quantity;
+        }
+        /// <summary>
+        /// Intialize new object
+        /// </summary>
+        /// <param name="name">item name</param>
+        /// <param name="price">item price</param>
+        /// <param name="quantity">item quantity</param>
+        public CartItem(string name, double price, int quantity)
+        {
+            this.id++;
+            this.name = name;
+            this.price = price;
+            this.qty = quantity;
+        }
+             
+    }
+}
