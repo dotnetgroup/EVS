@@ -1,0 +1,90 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace EVS179.NSCart
+{
+    public class Cart : IDisposable
+    {
+        DynamicArray objDynamicArray;
+        /// <summary>
+        /// Get total count
+        /// </summary>
+
+        public int Count
+        {
+            get { return DynamicArray.Count; }
+        }
+
+        double totalAmount;
+        /// <summary>
+        /// Total Amount of all items
+        /// </summary>
+        public double TotalAmount
+        {
+            get { return totalAmount; }
+        }
+
+        public Cart()
+        {
+            objDynamicArray = new DynamicArray();
+            //objCartItem = new CartItem();
+        }
+
+        //public Cart(string name, double price, int quantity);
+        //{
+        //    count += 1;
+        //    objDynamicArray = new DynamicArray();
+        //    objCartItem = new CartItem(name, price, quantity);
+        //    objDynamicArray.Add(objCartItem);
+        //}
+
+        //public Cart(int id, string name, double price, int quantity)
+        //{
+        //    count = 1;
+        //    objDynamicArray = new DynamicArray();
+        //    objCartItem = new CartItem(id, name, price, quantity);
+        //    objDynamicArray.Add(objCartItem);
+        //}
+
+        public void Add(CartItem obj)
+        {
+            totalAmount += obj.Amount;
+            objDynamicArray.Add(obj);
+        }
+
+        //public void Add(int id, string name, double price, int quantity)
+        //{
+        //    count++;
+        //    objDynamicArray.Add(new CartItem(id, name, price, quantity));
+        //}
+
+        //public void Add(string name, double price, int quantity)
+        //{
+        //    objDynamicArray.Add(new CartItem(name, price, quantity));
+        //}
+
+        public CartItem[] GetAllItems()
+        {
+            return objDynamicArray.GetAllItems();
+        }
+
+        //DynamicArrayGeneric<CartItem> cartItem = new DynamicArrayGeneric<CartItem>();
+
+        //public void Add(CartItem objCartItem)
+        //{
+        //    cartItem.Add(objCartItem);
+        //}
+
+
+
+
+        public void Dispose()
+        {
+            this.totalAmount = 0;
+            this.objDynamicArray = null;
+        }
+    }
+}
