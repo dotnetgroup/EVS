@@ -1,0 +1,202 @@
+/*
+    ======================================
+        Body
+    ======================================
+    */
+body {
+    margin:0px;
+    padding:10px;
+}
+
+/*
+    ======================================
+        Main Div
+    ======================================
+    */
+.maindiv {
+    padding:5px;
+    border: 1px solid #C0C0C0;
+    background-color:#F6F6F6;
+    width:965px;
+    margin:auto;
+    border-radius:15px;
+}
+
+/*
+    ======================================
+            Header Settings
+    ======================================
+    */
+
+/********     HeadTitle      **********/
+.HeadTitle {
+    /*border: 1px solid #C0C0C0;*/
+    height:80px;
+    background-color:#F6F6F6;
+}
+
+/********     firstSpan      **********/
+.firtSpan {
+    font-family: 'Monotype Corsiva';
+    font-size: 48px;
+    font-weight: bold;
+    text-transform: lowercase;
+    color: #AF0F19;
+    text-align: left;
+    white-space: nowrap;
+    letter-spacing: 2px;
+    vertical-align: baseline;
+    text-shadow:2px 2px 1px #7d7d7d;
+}
+
+/********     SecondSpan      **********/
+
+
+
+
+/********     RightCorner Settings      **********/
+
+.rightCorner {
+    padding:0px;
+    margin:0px;
+    float:right;
+    height:54px;
+    text-align:right;
+}
+
+    .rightCorner  a:hover,img:hover {
+        border-spacing:0px;
+        border:1px;
+    border-color: #FF9933;
+    border-style: solid;
+    border-radius: 5px;
+}
+
+    /*********  Menu Bar Settings   ***************/
+.menubar {
+    background-color:#ADADAD;
+    height:40px;
+    border-radius:5px;
+}
+    .menubar ul,li {
+    list-style-type: none;
+    list-style-image: none;
+    list-style-position: inside;
+}
+
+    /*********** CSS Menue **************/
+    ul.cssMenu li a
+{
+    padding: 0px 15px 0px 15px;
+    vertical-align:central;
+    text-align: left;
+    text-decoration: none;
+    margin-left:0px;
+}
+ul.cssMenu li a:hover
+{
+    /*font-family: 'Monotype Corsiva';*/
+    /*border-width: thick;
+    text-decoration: underline;
+    border-left-style: double;
+    color: #FFFFFF;
+    border-left-color: Green;
+    font-weight: bold;
+    text-transform: capitalize;
+    font-size: 1em;
+    font-style: normal;*/
+}
+ul.cssMenu, ul.cssMenu ul
+{
+    list-style: none;
+    margin: 0px;
+}
+ul.cssMenu li {
+    position: relative;
+    float: left;
+    margin-top: 10px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+ul.cssMenu li:hover {
+    background: #E1DFDF;
+    left: 0px;
+    border-radius:10px;
+}
+ul.cssMenu li a
+{
+    display:block;
+    margin:0px;
+}
+ul.cssMenu ul {
+    display: none; /*initially menu item is hidden*/
+    position: absolute; /*absolute positioning is important for menu to float*/
+    width: auto; /*Formating of menu items*/
+    border: 1px solid #FF9933;
+    padding: 1px;
+    background: #FFFFFF; /*optional - to change position of 2nd level menu item*/
+    top: 100%;
+    left: 0px;
+}
+         ul.cssMenu ul li
+        { 
+          background: #ADADAD; 
+        	color: #000; 
+			border-bottom: 1px solid #DDDDDD; 
+			float: none; 
+			text-align:center;
+			width:100px;
+		}
+									  
+        ul.cssMenu ul li a
+        { 
+        	width: 100%; 
+        	display: block; 
+        	color:#000000;
+        } 
+
+        /* Menu item position for 3rd level and more */
+        ul.cssMenu ul ul
+        { 
+        	left: 100%; 
+        	top: 0; 
+        }
+           /* Hover effect for menu*/
+        ul.cssMenu li:hover > ul 			
+        { 
+            background-color:#ADADAD;
+        	display:block;
+        	border-style:none;
+            border-bottom-right-radius:10px;
+            border-bottom-left-radius:10px;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+    ======================================
+            Footer Settings
+    ======================================
+    */
+
+.footer a {
+     padding: 0px 20px 0px 15px;
+    vertical-align:central;
+    text-align: left;
+    text-decoration: none;
+    color:#ADADAD;
+    margin-left:0px;
+}
+    .footer a:hover {
+        background: #E1DFDF;
+        border-radius:15px;
+    }
