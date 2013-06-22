@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    @*<title>@ViewBag.Title</title>*@
+    <title>Home Page</title>
+    <link href="~/Contents/main.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="maindiv">
+        <div class="header">
+            <div class="topHead">
+                <div class="HeadTitle">
+                    <span class="firtSpan"></span><span id="secondSpan">computer STORE</span>
+                    <div class="rightCorner">
+                        <a href="#">Account
+                        </a>
+                        <br />
+                        <img src="~/Images/cart_icon.png" />
+                        Cart: 0 items
+                    </div>
+                </div>
+                <div class="menubar">
+                    <div>
+                        <ul class="cssMenu">
+                            <li>Home</li>
+                            <li>New Products
+                                <ul>
+                                    <li><a href="#">item 1</a></li>
+                                    <li><a href="#">item 2</a></li>
+                                    <li><a href="#">item 3</a></li>
+                                </ul>
+                            </li>
+                            <li>Specials
+                                <ul>
+                                    <li><a href="#">item 1</a></li>
+                                    <li><a href="#">item 2</a></li>
+                                    <li><a href="#">item 3</a></li>
+                                </ul>
+                            </li>
+                            <li>All Products</li>
+                            <li>FAQ's</li>
+                            <li>Contact Us</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            Header
+        </div>
+        <div class="RenderBody">
+            @RenderBody()
+        </div>
+        <div class="footer">
+            <hr />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="#">Home</a>
+            <a href="#">New Products</a>
+            <a href="#">Specials</a>
+            <a href="#">All Products</a>
+            <a href="#">FAQ's</a>
+            <a href="#">Contact Us</a>
+        </div>
+    </div>
+</body>
+</html>
