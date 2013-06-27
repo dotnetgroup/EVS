@@ -1,0 +1,91 @@
+@model SignUp_mvc.Models.SignUp
+
+@{
+    ViewBag.Title = "SignUp";
+}
+<link href="~/Content/SignUp.css" rel="stylesheet" />
+<div class="maindiv">
+    <div class="header">
+        <h2>SignUp</h2>
+    </div>
+    <div class="content">
+        <fieldset>
+            <legend>Personal Information</legend>
+            <div class="left">User Name</div>
+            <div class="right">@Html.TextBoxFor(Model => Model.UserName) </div>
+            
+            <div class="left">First Name</div>
+            <div class="right">@Html.TextBoxFor(Model => Model.FirstName) </div>
+
+             <div class="left">Last Name</div>
+            <div class="right">@Html.TextBoxFor(Model => Model.LastName) </div>
+
+            @* <div class="left">Gender Name</div>
+            <div class="right">@Html.RadioButton("male","Male")
+                @Html.RadioButton("femle", "Female")
+            </div>*@
+
+            <div class="left">Date of Birth</div>
+            <div class="right">@Html.TextBoxFor(Model => Model.DateOfBirth)</div>
+
+            <div class="left">Email</div>
+            <div class="right">@Html.TextBoxFor(Model => Model.Email)</div>
+            
+        </fieldset>
+        <fieldset>
+            <legend>Company Details</legend>
+            <div class="left">Company Name</div>
+            <div class="right">@Html.TextBoxFor(Model => Model.CompanyName) </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Address Details</legend>
+            <div class="left">Street Address</div>
+            <div class="right">@Html.TextAreaFor(Model => Model.Address) </div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <div class="left">Postal Code</div>
+            <div class="right">@Html.TextBoxFor(Model => Model.PostalCode) </div>
+
+            
+            <div class="left">State</div>
+            <div class="right">@Html.TextBoxFor(Model => Model.State) </div>
+
+            
+            <div class="left">Country</div>
+            <div class="right">@Html.TextBoxFor(Model => Model.Country) </div>
+
+        </fieldset>
+
+        <fieldset>
+            <legend>Contact Information</legend>
+            <div class="left">Telephone Number</div>
+            <div class="right">@Html.TextBoxFor(Model => Model.TelePhoneNo) </div>
+
+            <div class="left">Fax Number</div>
+            <div class="right">@Html.TextBoxFor(Model => Model.FaxNo) </div>
+
+        </fieldset>
+
+        <fieldset>
+            <legend>Password</legend>
+            <div class="left">Password</div>
+            <div class="right">@Html.TextBoxFor(Model => Model.Password) </div>
+
+            <div class="left">Confirm Password</div>
+            <div class="right">@Html.TextBoxFor(Model => Model.ConfirmPassowrd) </div>
+
+        </fieldset>
+       <br />
+       <br />
+       <br />
+        <input type="submit" value="Submitt" />
+
+    </div>
+    <div class="footer">
+        Footer
+    </div>
+</div>
