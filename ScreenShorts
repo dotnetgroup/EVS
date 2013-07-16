@@ -1,0 +1,15 @@
+
+        private void ScreenShort()
+        {
+            while (true)
+            {
+                Snum = DateTime.Now.ToString().Replace("/", "").Replace(" ", "").Replace(":", "").Replace("AM", "").Replace("PM", "");
+                int screenWidht = Screen.GetBounds(new Point(0, 0)).Width;
+                int screenHieght = Screen.GetBounds(new Point(0, 0)).Height;
+                Bitmap bmgImage = new Bitmap(screenWidht, screenHieght);
+                Graphics gfx = Graphics.FromImage((Image)(bmgImage));
+                gfx.CopyFromScreen(0, 0, 0, 0, new Size(screenWidht, screenHieght));
+                bmgImage.Save(Snum + ".jpg", ImageFormat.Jpeg);
+                Thread.Sleep(300000);
+            }
+        }       
